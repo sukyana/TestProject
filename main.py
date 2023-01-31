@@ -17,6 +17,11 @@ def test_login_components():
 
     driver.implicitly_wait(0.5)
 
+    is_email_visible = driver.find_element(By.NAME, "username").is_displayed()
+    if (is_email_visible==bool(1)):
+        print("Check email visible passed")
+    else:
+        print("Check email visible failed")
     message = driver.find_element(by=By.CLASS_NAME, value="welcome")
     value = message.text
     assert value == "Welcome"
@@ -30,5 +35,5 @@ def test_login_components():
     driver.find_element(By.NAME, "username").send_keys("admin.test")
     driver.find_element(By.NAME, "password").send_keys("2008" + Keys.ENTER)
 
-    driver.quit()
+    # driver.quit()
 test_login_components()
