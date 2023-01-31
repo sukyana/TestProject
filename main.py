@@ -2,6 +2,8 @@ from selenium.webdriver import Keys
 from selenium.webdriver.chrome.service import Service
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support.color import Color
+
 
 def test_login_components():
     service = Service(executable_path="D:\Web Driver\chromedriver.exe")
@@ -16,6 +18,10 @@ def test_login_components():
         print("Check title failed")
 
     driver.implicitly_wait(0.5)
+
+    login_button_colour = Color.from_string(driver.find_element(By.CLASS_NAME, 'btn-primary').value_of_css_property('background-color'))
+    assert login_button_colour.hex == '#3c8dbc'
+
 
     is_email_visible = driver.find_element(By.NAME, "username").is_displayed()
     if (is_email_visible==bool(1)):
@@ -35,5 +41,5 @@ def test_login_components():
     driver.find_element(By.NAME, "username").send_keys("admin.test")
     driver.find_element(By.NAME, "password").send_keys("2008" + Keys.ENTER)
 
-    # driver.quit()
+    driver.quit()
 test_login_components()
