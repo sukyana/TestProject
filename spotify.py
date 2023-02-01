@@ -10,14 +10,14 @@ from selenium.webdriver.support.color import Color
 def test_login_components():
     service = Service(executable_path="D:\\Web Driver\\chromedriver.exe")
     driver = webdriver.Chrome(service=service)
-    driver.get("http://10.120.100.96:8080/WingMCUAT/login.html")
+    driver.get("https://www.spotify.com/us/signup?forward_url=https%3A%2F%2Fopen.spotify.com%2F")
     passed = 0
     false = 0
     print("----------------------Report-----------------------")
 
     try:
         title = driver.title
-        assert title == "Wing MC | Log in"
+        assert title == "Sign up for free to start listening."
     except Exception as e:
         print(e, "Check title false")
         false += 1
@@ -28,7 +28,7 @@ def test_login_components():
 
     try:
         url = driver.current_url
-        assert url == "http://10.120.100.96:8080/WingMCUAT/login.html"
+        assert url == "https://www.spotify.com/us/signup?forward_url=https%3A%2F%2Fopen.spotify.com%2F"
     except Exception as e:
         print(e, "Check url false")
         false += 1
@@ -40,7 +40,7 @@ def test_login_components():
     try:
         appname = driver.find_element(by=By.CLASS_NAME, value="app-name")
         appname_text = appname.text
-        assert appname_text == "WING MANAGEMENT CONSOLE"
+        assert appname_text == "Sign up for free to start listening."
     except Exception as e:
         print(e, "Check app name false")
         false += 1

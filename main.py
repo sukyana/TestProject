@@ -1,6 +1,6 @@
 from selenium.webdriver import Keys
 from selenium.webdriver.chrome.service import Service
-from selenium import webdriver
+from selenium import webdriver 
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.color import Color
 
@@ -31,15 +31,15 @@ def test_login_components():
     message = driver.find_element(by=By.CLASS_NAME, value="welcome")
     value = message.text
     assert value == "Welcome"
-    if (value == "Welcome3"):
+    if (value == "Welcome"):
         print("Check message passed")
     else:
         print("Check message failed")
 
-    driver.implicitly_wait(0.5)
+    driver.implicitly_wait(0.5 )
 
     driver.find_element(By.NAME, "username").send_keys("admin.test")
-    driver.find_element(By.NAME, "password").send_keys("2008" + Keys.ENTER)
+    driver.find_element(By.NAME, "password").send_keys("2008" )
 
     driver.quit()
 test_login_components()
