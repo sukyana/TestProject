@@ -132,7 +132,6 @@ def test_login_components():
     print(report.format(passed+false, passed, false))
     print("----------------------END-----------------------")
     messagebox.showinfo("Total TC", report_alert.format(passed, false))
-
 # def test_seconde_screen_components():
 #     status = webdriver.Chrome(service=service)
 #     status.get("https://accounts.spotify.com/en/status")

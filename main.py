@@ -107,7 +107,7 @@ def test_login_components():
         print("Check login with valid user and password passed")
         passed += 1
     driver.implicitly_wait(0.5)
-    driver.quit()
+    driver.stop_client()
     report = "Total TC: Passed= {},  False= {}"
     report_alert = "Passed= {},  False= {}"
     print(report.format(passed, false))
